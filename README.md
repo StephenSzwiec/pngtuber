@@ -18,8 +18,23 @@ uv sync
 
 For now, you can get debug output with placeholder sprites using: 
 ```bash
-mkdir nonexistant
+source .venv/bin/activate
 pngtuber --sprites ./nonexistant --debug
 ```
 This will print out the detected facial landmarks and their corresponding sprite names.
+
+### Placeholders for Sprites 
+
+```bash 
+mkdir sprites && cd sprites 
+for i in neutral hands_over_head hands_on_chin; do
+  for j in neutral happy angry; do
+    for k in blink_quiet blink_yap noblink_quiet noblink_yap; do
+      touch ${i}__${j}__${k}.png
+    done
+  done
+done
+``` 
+You will need to replace these placeholder sprites with actual images that correspond to the detected expressions and poses for your PNGTuber. 0px sized sprites will lead to an error, so make sure to use valid images. 
+
 

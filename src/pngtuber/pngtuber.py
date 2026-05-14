@@ -1,5 +1,5 @@
 """
-pngtuber_skeleton.py
+pngtuber.py
 --------------------
 Pose-driven PNGtuber prototype.
 
@@ -24,7 +24,9 @@ Architecture:
                                    captured by OBS)
 
 Run:
-    python pngtuber_skeleton.py --sprites ./sprites
+    python pngtuber.py --sprites ./sprites
+or, if installed with uv: 
+    pngtuber --sprites ./sprites 
 """
 
 from __future__ import annotations
@@ -44,7 +46,7 @@ import numpy as np
 import mediapipe as mp
 
 # Audio is optional; voice activity can also come from your existing PNGtuber
-# tool if you'd rather let it own the talk/quiet axis. See note at bottom.
+# tool if you'd rather let it own the talk/quiet axis.
 try:
     import sounddevice as sd
     _HAS_AUDIO = True
@@ -573,13 +575,3 @@ def main() -> int:
 
 if __name__ == "__main__": 
     sys.exit(main())
-
-# ---------------------------------------------------------------------------
-# Note on voice activity:
-# If she'd rather let an existing PNGtuber app (Veadotube etc.) own the mouth
-# flap, drop VoiceActivity from this script entirely and just render two face
-# variants per (pose, expr) cell — blink/noblink — then layer Veadotube on top
-# of this sprite in OBS, set to a transparent talking-mouth-only image. That
-# splits the responsibilities cleanly: this script owns pose+expr+blink,
-# Veadotube owns mouth shape.
-# ---------------------------------------------------------------------------
