@@ -1,0 +1,23 @@
+[project]
+name = "pngtuber"
+version = "0.1.0"
+description = "Rigging a PNGTuber with MediaPipe and OpenCV for automatic expression tracking and animation."
+readme = "README.md"
+license = "GPL-3.0-or-later"
+authors = [
+    { name = "stephenszwiec", email = "stephen.szwiec@ndsu.edu" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "mediapipe>=0.10.35",
+    "numpy>=2.4.4",
+    "opencv-python>=4.13.0.92",
+    "sounddevice>=0.5.5",
+]
+
+[project.scripts]
+pngtuber = "pngtuber:main"
+
+[build-system]
+requires = ["uv_build>=0.8.22,<0.9.0"]
+build-backend = "uv_build"
