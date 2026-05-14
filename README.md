@@ -18,7 +18,7 @@ uv sync
 
 For now, you can get debug output with placeholder sprites using: 
 ```bash
-mkdir sprites
+mkdir nonexistant
 pngtuber --sprites ./nonexistant --debug
 ```
 This will print out the detected facial landmarks and their corresponding sprite names.
